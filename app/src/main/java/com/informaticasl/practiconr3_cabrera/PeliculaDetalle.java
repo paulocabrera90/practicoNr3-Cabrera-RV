@@ -32,7 +32,7 @@ public class PeliculaDetalle extends AppCompatActivity {
         pelicula.setActores(getIntent().getStringExtra("actores"));
         pelicula.setFoto(getIntent().getIntExtra("imagen", 0));
         pelicula.setAnio(getIntent().getIntExtra("anio", 2021));
-        pelicula.setGenero(getIntent().getStringExtra("anio"));
+        pelicula.setGenero(getIntent().getStringExtra("genero"));
 
         tvNombre = findViewById(R.id.textViewTitulo);
         tvDetalle = findViewById(R.id.textViewDetalleCompleto);
