@@ -28,10 +28,8 @@ public class PeliculaDetalle extends AppCompatActivity {
 
        Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
-        Pelicula peli=    (Pelicula) bundle.getSerializable("peli");
-
         pelicula = new Pelicula();
-        pelicula = peli;
+        pelicula = (Pelicula) bundle.getSerializable("peli");
 
         tvNombre = findViewById(R.id.textViewTitulo);
         tvDetalle = findViewById(R.id.textViewDetalleCompleto);
