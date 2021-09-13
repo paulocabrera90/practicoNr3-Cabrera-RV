@@ -26,18 +26,12 @@ public class PeliculaDetalle extends AppCompatActivity {
 
     private void init() {
 
-     //   Intent intent = this.getIntent();
-      //  Bundle bundle = intent.getExtras();
-
-       // Pelicula peli=    (Pelicula) bundle.getSerializable("peli");
+       Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+        Pelicula peli=    (Pelicula) bundle.getSerializable("peli");
 
         pelicula = new Pelicula();
-        pelicula.setNombrePeli(getIntent().getStringExtra("nombre"));
-        pelicula.setDetallePeli(getIntent().getStringExtra("detalle"));
-        pelicula.setActores(getIntent().getStringExtra("actores"));
-        pelicula.setFoto(getIntent().getIntExtra("imagen", 0));
-        pelicula.setAnio(getIntent().getIntExtra("anio", 2021));
-        pelicula.setGenero(getIntent().getStringExtra("genero"));
+        pelicula = peli;
 
         tvNombre = findViewById(R.id.textViewTitulo);
         tvDetalle = findViewById(R.id.textViewDetalleCompleto);

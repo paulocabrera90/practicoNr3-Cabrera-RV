@@ -1,6 +1,8 @@
 package com.informaticasl.practiconr3_cabrera.modelo;
 
-public class Pelicula {
+import java.io.Serializable;
+
+public class Pelicula implements Serializable {
     private String nombrePeli;
     private String detallePeli;
     private int anio;

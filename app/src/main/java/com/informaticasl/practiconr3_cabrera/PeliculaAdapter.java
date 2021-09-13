@@ -58,16 +58,9 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent detallePelicula = new Intent(context, PeliculaDetalle.class);
-                detallePelicula.putExtra("nombre", finalPeli.getNombrePeli());
-                detallePelicula.putExtra("imagen", finalPeli.getFoto());
-                detallePelicula.putExtra("detalle", finalPeli.getDetallePeli());
-                detallePelicula.putExtra("actores", finalPeli.getActores());
-                detallePelicula.putExtra("anio", finalPeli.getAnio());
-                detallePelicula.putExtra("genero", finalPeli.getGenero());
-
-               // Bundle bundle = new Bundle();
-                //bundle.putSerializable("peli", (Serializable) finalPeli);
-               // detallePelicula.putExtras(bundle);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("peli", (Serializable) finalPeli);
+                detallePelicula.putExtras(bundle);
 
                 context.startActivity(detallePelicula);
             }
