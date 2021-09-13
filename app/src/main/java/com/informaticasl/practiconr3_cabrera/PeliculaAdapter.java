@@ -46,20 +46,26 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.tvNombre.setText(peliculaArrayList.get(position).getNombrePeli());
         holder.tvDetalleShort.setText(peliculaArrayList.get(position).getDetallePeli().substring(0,150)+"...");
-       // holder.tvDetalle.setText(peliculaArrayList.get(position).getDetallePeli());
         holder.ivFoto.setImageResource(peliculaArrayList.get(position).getFoto());
+        Pelicula peli = new Pelicula();
+        peli = peliculaArrayList.get(position);
+        Pelicula finalPeli = peli;
         holder.btnDetalle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detallePelicula = new Intent(context, PeliculaDetalle.class);
-                detallePelicula.putExtra("peliculaDetalle", (Parcelable) peliculaArrayList.get(position));
+                detallePelicula.putExtra("nombre", finalPeli.getNombrePeli());
+                detallePelicula.putExtra("imagen", finalPeli.getFoto());
+                detallePelicula.putExtra("detalle", finalPeli.getDetallePeli());
+                detallePelicula.putExtra("actores", finalPeli.getActores());
+                detallePelicula.putExtra("anio", finalPeli.getAnio());
+                detallePelicula.putExtra("genero", finalPeli.getGenero());
                 context.startActivity(detallePelicula);
             }
         });
-
-
     }
 
     @Override

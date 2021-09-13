@@ -4,58 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_pelicula_detalle_scene"
     tools:context=".PeliculaDetalle">
 
-    <TextView
-        android:id="@+id/textViewTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Titulo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivFotoDetalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
-        tools:srcCompat="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textViewAnio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="316dp"
-        android:text="Anio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDetalleCompleto" />
+            <TextView
+                android:id="@+id/textViewTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Titulo" />
 
-    <TextView
-        android:id="@+id/textViewActores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Actores"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAnio"
-        app:layout_constraintVertical_bias="0.565" />
+            <ImageView
+                android:id="@+id/ivFotoDetalle"
+                android:layout_width="400dp"
+                android:layout_height="268dp"
+                android:layout_marginTop="52dp" />
 
-    <TextView
-        android:id="@+id/textViewDetalleCompleto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Detalle completo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivFotoDetalle" />
+            <TextView
+                android:id="@+id/textViewAnio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anio" />
+
+            <TextView
+                android:id="@+id/textViewDetalleCompleto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Detalle completo" />
+
+            <TextView
+                android:id="@+id/textViewActores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actores" />
+
+            <TextView
+                android:id="@+id/textViewGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Genero" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
