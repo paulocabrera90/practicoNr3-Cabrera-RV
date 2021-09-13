@@ -2,6 +2,7 @@ package com.informaticasl.practiconr3_cabrera;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent detallePelicula = new Intent(context, PeliculaDetalle.class);
-                detallePelicula.putExtra("listaPeliculas", (Serializable) peliculaArrayList);
+                detallePelicula.putExtra("peliculaDetalle", (Parcelable) peliculaArrayList.get(position));
                 context.startActivity(detallePelicula);
             }
         });
