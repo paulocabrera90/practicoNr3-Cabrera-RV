@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         rvPelicula = findViewById(R.id.rvContenedorPeli);
         rvPelicula.addItemDecoration(new DividerItemDecoration(this , DividerItemDecoration.VERTICAL));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvPelicula.setLayoutManager(linearLayoutManager)
-        ;
+        rvPelicula.setLayoutManager(linearLayoutManager);
         peliculaAdapter = new PeliculaAdapter(this.peliculasList(), this, getLayoutInflater());
         rvPelicula.setAdapter(peliculaAdapter);
 

@@ -1,9 +1,12 @@
 package com.informaticasl.practiconr3_cabrera;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.informaticasl.practiconr3_cabrera.modelo.Pelicula;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder>{
@@ -23,10 +27,13 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         this.peliculaArrayList = peliculaArrayList;
     }
 
+
+
     public PeliculaAdapter(ArrayList<Pelicula> peliculaArrayList, Context context, LayoutInflater layoutInflater) {
         this.peliculaArrayList = peliculaArrayList;
         this.context = context;
         this.layoutInflater = layoutInflater;
+
     }
 
     @NonNull
@@ -39,8 +46,17 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvNombre.setText(peliculaArrayList.get(position).getNombrePeli());
-      //  holder.tvDetalle.setText(peliculaArrayList.get(position).getDetallePeli());
+        holder.tvDetalleShort.setText(peliculaArrayList.get(position).getDetallePeli().substring(0,150)+"...");
+       // holder.tvDetalle.setText(peliculaArrayList.get(position).getDetallePeli());
         holder.ivFoto.setImageResource(peliculaArrayList.get(position).getFoto());
+        holder.btnDetalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent detallePelicula = new Intent(context, PeliculaDetalle.class);
+                detallePelicula.putExtra("listaPeliculas", (Serializable) peliculaArrayList);
+                context.startActivity(detallePelicula);
+            }
+        });
 
 
     }
@@ -51,14 +67,17 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView tvNombre, tvDetalle;
+        private TextView tvNombre, tvDetalleShort, tvDetalle;
         private ImageView ivFoto;
+        private Button btnDetalle;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNombre = itemView.findViewById(R.id.textViewNombre);
-           // tvDetalle = itemView.findViewById(R.id.textViewDetalle);
+            tvDetalleShort = itemView.findViewById(R.id.textViewDetalleShort);
             ivFoto = itemView.findViewById(R.id.ivFoto);
+            btnDetalle = itemView.findViewById(R.id.btnDetalle);
+
         }
     }
 }
