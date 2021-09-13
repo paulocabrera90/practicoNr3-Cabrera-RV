@@ -2,6 +2,7 @@ package com.informaticasl.practiconr3_cabrera;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,6 +64,11 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
                 detallePelicula.putExtra("actores", finalPeli.getActores());
                 detallePelicula.putExtra("anio", finalPeli.getAnio());
                 detallePelicula.putExtra("genero", finalPeli.getGenero());
+
+               // Bundle bundle = new Bundle();
+                //bundle.putSerializable("peli", (Serializable) finalPeli);
+               // detallePelicula.putExtras(bundle);
+
                 context.startActivity(detallePelicula);
             }
         });

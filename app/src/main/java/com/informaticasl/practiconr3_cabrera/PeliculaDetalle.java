@@ -26,6 +26,11 @@ public class PeliculaDetalle extends AppCompatActivity {
 
     private void init() {
 
+     //   Intent intent = this.getIntent();
+      //  Bundle bundle = intent.getExtras();
+
+       // Pelicula peli=    (Pelicula) bundle.getSerializable("peli");
+
         pelicula = new Pelicula();
         pelicula.setNombrePeli(getIntent().getStringExtra("nombre"));
         pelicula.setDetallePeli(getIntent().getStringExtra("detalle"));
